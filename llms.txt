@@ -1,0 +1,18 @@
+# SlugShade - LLM Context File
+
+SlugShade is an npm package for deterministic slug generation with Unicode-first behavior.
+
+Core points:
+- Default output keeps Unicode letters/numbers from non-Latin scripts.
+- ASCII mode transliterates where possible and hex-encodes unknown scripts (`u<hex>`).
+- `slugDetailed()` returns a transformation trace for debugging and AI workflows.
+- `slugAsync()` takes a user-provided AI function; final output is always re-sanitized deterministically.
+- No runtime dependencies.
+
+Public API:
+- slug(input, options?) => string
+- slugDetailed(input, options?) => { slug, tokens, warnings, steps }
+- slugAsync(input, { ...options, ai }) => Promise<string>
+- createSlugger(defaults) => (input, options?) => string
+- uniqueSlug(base, isTaken, opts?) => string
+- presets.safe / presets.cyber / presets.unicode

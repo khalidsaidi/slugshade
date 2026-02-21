@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+.cursor/
+.DS_Store
+.env
+.env.*
+*.tgz
+.ai/logs/
+.ai/tmp/
