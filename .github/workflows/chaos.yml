@@ -1,0 +1,25 @@
+name: Chaos
+
+on:
+  workflow_dispatch:
+    inputs:
+      fuzz_cases:
+        description: Randomized fuzz cases to run
+        required: false
+        default: '1200'
+        type: string
+
+jobs:
+  first-user-chaos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Run isolated first-user chaos suite
+        env:
+          CHAOS_FUZZ_CASES: ${{ inputs.fuzz_cases }}
+        run: npm run chaos:user

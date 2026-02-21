@@ -57,6 +57,7 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
+    "chaos:user": "bash ./scripts/chaos-user-first-run.sh",
     "lint": "eslint .",
     "format": "prettier -w .",
     "typecheck": "tsc -p tsconfig.json --noEmit",

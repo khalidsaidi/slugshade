@@ -98,6 +98,19 @@ npm run typecheck
 npm test
 npm run build
 npm run publint
+npm run chaos:user
+```
+
+`chaos:user` runs an isolated first-time-user simulation in `/tmp`:
+- packs the library
+- installs it in a fresh project
+- executes ESM + CJS smoke checks
+- runs randomized fuzz checks for unsafe output invariants
+
+Useful env vars:
+```bash
+CHAOS_FUZZ_CASES=3000 npm run chaos:user
+CHAOS_KEEP_TMP=1 npm run chaos:user
 ```
 
 ## Publish Checklist
@@ -105,6 +118,9 @@ npm run publint
 npm run prepublishOnly
 npm pack --dry-run
 ```
+
+## Optional CI Chaos Run
+Use the `Chaos` workflow in GitHub Actions (`workflow_dispatch`) to run the same isolated first-user chaos suite in CI.
 
 ## License
 MIT
