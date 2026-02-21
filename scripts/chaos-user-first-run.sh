@@ -44,8 +44,8 @@ import {
   slugAsync,
   slugDetailed,
   uniqueSlug,
-} from 'slugshade';
-import { presets as subpathPresets } from 'slugshade/presets';
+} from '@khalidsaidi/slugshade';
+import { presets as subpathPresets } from '@khalidsaidi/slugshade/presets';
 
 const failures = [];
 const check = (ok, msg) => {
@@ -129,8 +129,8 @@ EOF
 
 echo "[chaos] Running CJS smoke checks..."
 node <<'EOF'
-const { presets, slug, slugDetailed } = require('slugshade');
-const { presets: subpathPresets } = require('slugshade/presets');
+const { presets, slug, slugDetailed } = require('@khalidsaidi/slugshade');
+const { presets: subpathPresets } = require('@khalidsaidi/slugshade/presets');
 
 const a = slug('Hello, world!');
 const b = slug('你好 世界', { alphabet: 'ascii' });
@@ -148,7 +148,7 @@ EOF
 
 echo "[chaos] Running randomized fuzz checks ($FUZZ_CASES cases)..."
 CHAOS_FUZZ_CASES="$FUZZ_CASES" node --input-type=module <<'EOF'
-import { slug } from 'slugshade';
+import { slug } from '@khalidsaidi/slugshade';
 
 const total = Number(process.env.CHAOS_FUZZ_CASES ?? '1200');
 

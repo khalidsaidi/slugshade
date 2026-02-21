@@ -10,12 +10,12 @@ Neon-grade slugs for every script. Cyber-native, Unicode-first, and built to be 
 
 ## Install
 ```bash
-npm i slugshade
+npm i @khalidsaidi/slugshade
 ```
 
 ## Quick Start
 ```ts
-import { slug, slugDetailed, slugAsync, presets } from 'slugshade';
+import { slug, slugDetailed, slugAsync, presets } from '@khalidsaidi/slugshade';
 
 slug('Hello, world!');
 // => hello-world

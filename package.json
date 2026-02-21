@@ -1,5 +1,5 @@
 {
-  "name": "slugshade",
+  "name": "@khalidsaidi/slugshade",
   "version": "0.1.0",
   "description": "SlugShade - cyber-native, Unicode-first slug engine (AI-native trace + optional AI hook).",
   "license": "MIT",
@@ -11,6 +11,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/khalidsaidi/slugshade.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "slug",
